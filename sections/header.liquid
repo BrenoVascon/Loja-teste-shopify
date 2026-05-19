@@ -119,18 +119,13 @@
 -%}
 
 {% liquid
-  assign header_tag = 'div'
-
-  if section.settings.sticky_header_type != 'none'
-    assign header_tag = 'sticky-header'
-  endif
+  assign header_tag = 'sticky-header'
 %}
 
-<{{ header_tag }}
-  {% if header_tag == 'sticky-header' %}
-    data-sticky-type="{{ section.settings.sticky_header_type }}"
-  {% endif %}
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
+<sticky-header
+  data-sticky-type="always"
+  class="header-wrapper color-scheme-1 gradient header-wrapper--border-bottom"
+  style="position: absolute; background: linear-gradient(180deg, #161616 0%, rgba(22, 22, 22, 0) 100%); width: 100vw;"
 >
   {%- liquid
     assign social_links = false
