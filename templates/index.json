@@ -232,7 +232,7 @@
       "type": "custom-featured-collection",
       "name": "Custom Featured Coll",
       "settings": {
-        "collection": "botas",
+        "collection": "tenis",
         "products_to_show": 8,
         "title": "Favoritos da Semana",
         "heading_size": "h1",
