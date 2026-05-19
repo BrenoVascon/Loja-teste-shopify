@@ -41,7 +41,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M15 18l-6-6 6-6"/></svg>
         </span>
       </button>
       <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
@@ -76,7 +76,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M9 18l6-6-6-6"/></svg>
         </span>
       </button>
 
@@ -159,32 +159,89 @@
           {%- endif -%}
         </div>
         <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
-          <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
-            {%- if block.settings.heading != blank -%}
-              <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
-                {{ block.settings.heading }}
-              </h2>
-            {%- endif -%}
-            {%- if block.settings.subheading != blank -%}
-              <div class="banner__text rte">
-                <p>{{ block.settings.subheading }}</p>
+          {%- if block.settings.enable_custom_card -%}
+            <div class="ec-slideshow-card" style="--ec-card-bg: {{ block.settings.card_bg_color }};">
+              <div class="ec-slideshow-card-header">
+                {%- if block.settings.heading != blank -%}
+                  <span class="ec-slideshow-card-title">{{ block.settings.heading }}</span>
+                {%- endif -%}
+                {%- if block.settings.subheading != blank -%}
+                  {%- if block.settings.enable_special_subheading -%}
+                    {%- assign subtitle_text = block.settings.subheading | strip_html -%}
+                    {%- if subtitle_text contains 'até' or subtitle_text contains 'ate' or subtitle_text contains 'Até' or subtitle_text contains 'Ate' -%}
+                      {%- assign cleaned_text = subtitle_text | replace: 'até', '' | replace: 'Até', '' | replace: 'ate', '' | replace: 'Ate', '' | strip -%}
+                      <span class="ec-slideshow-card-subtitle ec-slideshow-card-subtitle--special">
+                        <span class="ec-sub-light">até</span><strong class="ec-sub-highlight">{{ cleaned_text }}</strong>
+                      </span>
+                    {%- else -%}
+                      <span class="ec-slideshow-card-subtitle ec-slideshow-card-subtitle--special">
+                        {{ block.settings.subheading }}
+                      </span>
+                    {%- endif -%}
+                  {%- else -%}
+                    <span class="ec-slideshow-card-subtitle">
+                      {{ block.settings.subheading }}
+                    </span>
+                  {%- endif -%}
+                {%- endif -%}
               </div>
-            {%- endif -%}
-            {%- if block.settings.button_label != blank -%}
-              <div class="banner__buttons">
-                <a
-                  {% if block.settings.link %}
-                    href="{{ block.settings.link }}"
-                  {% else %}
-                    role="link" aria-disabled="true"
-                  {% endif %}
-                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
-                >
-                  {{- block.settings.button_label | escape -}}
-                </a>
+              
+              <div class="ec-slideshow-card-media-wrapper">
+                {%- if block.settings.card_image != blank -%}
+                  <img
+                    src="{{ block.settings.card_image | image_url: width: 600 }}"
+                    alt="{{ block.settings.card_image.alt | default: block.settings.heading | escape }}"
+                    class="ec-slideshow-card-image"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg ec-slideshow-card-placeholder' }}
+                {%- endif -%}
               </div>
-            {%- endif -%}
-          </div>
+
+              {%- if block.settings.button_label != blank -%}
+                <div class="ec-slideshow-card-footer">
+                  <a
+                    {% if block.settings.link %}
+                      href="{{ block.settings.link }}"
+                    {% else %}
+                      role="link" aria-disabled="true"
+                    {% endif %}
+                    class="ec-slideshow-card-button"
+                  >
+                    {{- block.settings.button_label | escape -}}
+                  </a>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- else -%}
+            <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
+              {%- if block.settings.heading != blank -%}
+                <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
+                  {{ block.settings.heading }}
+                </h2>
+              {%- endif -%}
+              {%- if block.settings.subheading != blank -%}
+                <div class="banner__text rte">
+                  <p>{{ block.settings.subheading }}</p>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.button_label != blank -%}
+                <div class="banner__buttons">
+                  <a
+                    {% if block.settings.link %}
+                      href="{{ block.settings.link }}"
+                    {% else %}
+                      role="link" aria-disabled="true"
+                    {% endif %}
+                    class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
+                  >
+                    {{- block.settings.button_label | escape -}}
+                  </a>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
         </div>
       </div>
     {%- endfor -%}
@@ -200,7 +257,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M15 18l-6-6 6-6"/></svg>
         </span>
       </button>
       <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
@@ -235,7 +292,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><path d="M9 18l6-6-6-6"/></svg>
         </span>
       </button>
 
@@ -406,6 +463,23 @@
           "default": 0
         },
         {
+          "type": "checkbox",
+          "id": "enable_custom_card",
+          "default": false,
+          "label": "Ativar Card Especial (Mockup)"
+        },
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Imagem do Card (Ex: Sandália)"
+        },
+        {
+          "type": "color",
+          "id": "card_bg_color",
+          "label": "Cor de Fundo do Card",
+          "default": "#c5c5be"
+        },
+        {
           "type": "header",
           "content": "t:sections.slideshow.blocks.slide.settings.header_text.content"
         },
@@ -448,6 +522,12 @@
           "id": "subheading",
           "default": "t:sections.slideshow.blocks.slide.settings.subheading.default",
           "label": "t:sections.slideshow.blocks.slide.settings.subheading.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_special_subheading",
+          "default": false,
+          "label": "Ativar Estilo Especial (até 50%OFF)"
         },
         {
           "type": "header",

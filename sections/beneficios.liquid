@@ -1,0 +1,95 @@
+{%- style -%}
+  .{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+  }
+  .{{ section.id }} .ec-beneficio-text {
+    color: {{ section.settings.text_color }};
+  }
+  .{{ section.id }} .ec-beneficio-icon {
+    border-color: {{ section.settings.icon_color }};
+  }
+  .{{ section.id }} .ec-beneficio-icon img,
+  .{{ section.id }} .ec-beneficio-icon svg {
+    color: {{ section.settings.icon_color }};
+    fill: {{ section.settings.icon_color }};
+    stroke: {{ section.settings.icon_color }};
+  }
+{%- endstyle -%}
+
+<div class="ec-beneficios-section {{ section.id }}">
+  <div class="ec-beneficios-container page-width">
+    {%- for block in section.blocks -%}
+      <div class="ec-beneficio-item" {{ block.shopify_attributes }}>
+        <div class="ec-beneficio-icon">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 48 | image_tag: loading: 'lazy' }}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+        <div class="ec-beneficio-text">
+          {{ block.settings.text }}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "seção beneficios",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Cor de Fundo",
+      "default": "#F8F8F8"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Cor do Texto",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Cor do Ícone",
+      "default": "#D1215A"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "beneficio",
+      "name": "Benefício",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Ícone"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texto",
+          "default": "Insira o benefício aqui"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "seção beneficios",
+      "blocks": [
+        { "type": "beneficio" },
+        { "type": "beneficio" },
+        { "type": "beneficio" },
+        { "type": "beneficio" }
+      ]
+    }
+  ]
+}
+{% endschema %}
