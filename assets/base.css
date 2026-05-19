@@ -2347,12 +2347,7 @@ input[type='checkbox'] {
 .header-wrapper {
   display: block;
   position: relative;
-  background: linear-gradient(180deg, #161616 0%, rgba(22, 22, 22, 0) 100%) !important;
-
-}
-
-.header-wrapper--border-bottom {
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+	background: linear-gradient(180deg, #161616 0%, rgba(22, 22, 22, 0) 100%) !important;
 }
 
 .header {
