@@ -15,10 +15,15 @@
         "slide_pqb8VX": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Group_4743.png",
             "image_overlay_opacity": 0,
-            "heading": "Image slide",
+            "enable_custom_card": true,
+            "card_image": "shopify://shop_images/image_2.png",
+            "card_bg_color": "rgba(0,0,0,0)",
+            "heading": "#SuperBazar",
             "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
+            "subheading": "até 50%OFF",
+            "enable_special_subheading": true,
             "button_label": "Button label",
             "link": "",
             "button_style_secondary": false,
@@ -33,9 +38,12 @@
           "type": "slide",
           "settings": {
             "image_overlay_opacity": 0,
+            "enable_custom_card": false,
+            "card_bg_color": "#c5c5be",
             "heading": "Image slide",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
+            "enable_special_subheading": false,
             "button_label": "Button label",
             "link": "",
             "button_style_secondary": false,
@@ -54,13 +62,58 @@
       "name": "t:sections.slideshow.presets.name",
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "counter",
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
         "auto_rotate": false,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "beneficios_YqdeL8": {
+      "type": "beneficios",
+      "blocks": {
+        "beneficio_RREfrD": {
+          "type": "beneficio",
+          "settings": {
+            "image": "shopify://shop_images/Group_1849.svg",
+            "text": "Insira o benefício aqui"
+          }
+        },
+        "beneficio_68WDje": {
+          "type": "beneficio",
+          "settings": {
+            "image": "shopify://shop_images/Group_1852.svg",
+            "text": "Insira o benefício aqui"
+          }
+        },
+        "beneficio_Dr7wd8": {
+          "type": "beneficio",
+          "settings": {
+            "image": "shopify://shop_images/Group_1854.svg",
+            "text": "Insira o benefício aqui"
+          }
+        },
+        "beneficio_NbjLB4": {
+          "type": "beneficio",
+          "settings": {
+            "image": "shopify://shop_images/Group_1856.svg",
+            "text": "Insira o benefício aqui"
+          }
+        }
+      },
+      "block_order": [
+        "beneficio_RREfrD",
+        "beneficio_68WDje",
+        "beneficio_Dr7wd8",
+        "beneficio_NbjLB4"
+      ],
+      "name": "seção beneficios",
+      "settings": {
+        "bg_color": "#f8f8f8",
+        "text_color": "#555555",
+        "icon_color": "#d1215a"
       }
     },
     "collection_list_pxmjiq": {
@@ -69,37 +122,37 @@
         "featured_collection_JXtxRE": {
           "type": "featured_collection",
           "settings": {
-            "collection": "automated-collection"
+            "collection": "bolsas"
           }
         },
         "featured_collection_T7Y9xm": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "tenis"
           }
         },
         "featured_collection_FERijf": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "rasteiras"
           }
         },
         "featured_collection_rkj6BX": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "plataformas"
           }
         },
         "featured_collection_b6AhDQ": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "botas"
           }
         },
         "featured_collection_4DbMte": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "sapatilhas"
           }
         }
       },
@@ -113,7 +166,7 @@
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "Collections",
+        "title": "Compre por categoria",
         "heading_size": "h1",
         "image_ratio": "square",
         "columns_desktop": 6,
@@ -131,22 +184,22 @@
         "heading_RmVm6U": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Pra brilhar no verão",
             "heading_size": "h1"
           }
         },
         "text_bMEbL8": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>As Sandálias Birkens são uma escolha de calçado atemporal e icônica, conhecida por seu conforto, qualidade e design diferenciado.</p>",
             "text_style": "body"
           }
         },
         "button_pnkjW9": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
+            "button_label": "É a minha cara",
+            "button_link": "shopify://collections",
             "button_style_secondary": false
           }
         }
@@ -158,7 +211,10 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "height": "adapt",
+        "image": "shopify://shop_images/0db6727572cc4f2c5dd6a253b67763373495ad32.png",
+        "enable_offset_card": false,
+        "offset_card_color": "#f5f5f3",
+        "height": "medium",
         "desktop_image_width": "medium",
         "layout": "text_first",
         "image_behavior": "none",
@@ -166,38 +222,117 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "",
+        "section_color_scheme": "scheme-0e6d3a58-6440-420d-a3f2-76e89e4d1f6c",
+        "color_scheme": "scheme-0e6d3a58-6440-420d-a3f2-76e89e4d1f6c",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_featured_collection_CVjG7k": {
+      "type": "custom-featured-collection",
+      "name": "Custom Featured Coll",
+      "settings": {
+        "collection": "botas",
+        "products_to_show": 8,
+        "title": "Favoritos da Semana",
+        "heading_size": "h1",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "custom_img_with_collections_JHbtLe": {
+      "type": "custom-img-with-collections",
+      "blocks": {
+        "collection_block_Gq9Mqn": {
+          "type": "collection_block",
+          "settings": {
+            "image": "shopify://shop_images/image_16.png",
+            "image_size": "small",
+            "text_position": "top",
+            "title": "Rasteiras & Birkens",
+            "text": "<p>A categoria de Sandália Rasteira da Sapatella é um verdadeiro paraíso para os amantes de conforto e estilo.</p>",
+            "link_label": "Eu quero",
+            "link_url": ""
+          }
+        },
+        "collection_block_EDcqxJ": {
+          "type": "collection_block",
+          "settings": {
+            "image": "shopify://shop_images/image_12.png",
+            "image_size": "large",
+            "text_position": "bottom",
+            "title": "",
+            "text": "",
+            "link_label": "Sandálias",
+            "link_url": ""
+          }
+        },
+        "collection_block_8FGfzt": {
+          "type": "collection_block",
+          "settings": {
+            "image": "shopify://shop_images/image_14.png",
+            "image_size": "medium",
+            "text_position": "bottom",
+            "title": "Tênis",
+            "text": "<p>Os tênis femininos se tornaram um item básico na moda e nos calçados do dia a dia.</p>",
+            "link_label": "Conferir",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_Gq9Mqn",
+        "collection_block_EDcqxJ",
+        "collection_block_8FGfzt"
+      ],
+      "name": "Img with Collections",
       "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": true,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "link",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
+        "title": "",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "custom_img_with_products_9EBtHM": {
+      "type": "custom-img-with-products",
+      "name": "Img with Products",
+      "settings": {
+        "image": "shopify://shop_images/8587931126a195a1299bd6068bffd3a35f0f4794.png",
+        "image_position": "left",
+        "products": [
+          "tenis-clean-urbano-branco",
+          "the-3p-fulfilled-snowboard",
+          "the-collection-snowboard-hydrogen",
+          "the-collection-snowboard-liquid"
+        ],
+        "collection": "",
+        "products_to_show": 4,
+        "title": "",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_8PKBFA": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/image_52.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
       }
     },
     "image_with_text_VFTfVR": {
@@ -206,14 +341,14 @@
         "heading_d8LUdw": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Sobre a Sapatella",
             "heading_size": "h1"
           }
         },
         "text_QxxgQ9": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Oi, a gente já se conhece? Muito prazer, Sapatella! Somos uma Marca de moda que oferece sapatos e acessórios feitos para te encantar. Aqui tem atenção de verdade, produtos com o seu jeito e ritmo. Chega mais, fique à vontade. Queremos ver você confortável e livre para ser como quiser e ocupar o espaço que bem entender. O que nos une e contagia é a vontade de brilhar e ser feliz. Mais que mulheres, somos amigas. Sapatella. Vamos juntas?<br/><br/></p>",
             "text_style": "body"
           }
         }
@@ -224,6 +359,9 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/image_53.png",
+        "enable_offset_card": true,
+        "offset_card_color": "#f5f5f5",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -241,9 +379,13 @@
   },
   "order": [
     "slideshow_NYM7pF",
+    "beneficios_YqdeL8",
     "collection_list_pxmjiq",
     "image_with_text_9PEHTN",
-    "featured_collection",
+    "custom_featured_collection_CVjG7k",
+    "custom_img_with_collections_JHbtLe",
+    "custom_img_with_products_9EBtHM",
+    "image_banner_8PKBFA",
     "image_with_text_VFTfVR"
   ]
 }
