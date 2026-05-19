@@ -3655,12 +3655,13 @@ details-disclosure > details {
   position: relative;
 }
 .custom-slider-nav-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-  max-width: calc(var(--page-width, 120rem) + 120px);
-  margin: 0 auto;
-  padding: 0 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: calc(var(--page-width, 120rem) + 120px);
+    margin: 0 auto;
+    padding: 0 60px;
+    justify-content: center;
 }
 .custom-slider-button {
   background: white;
